@@ -1,6 +1,0 @@
-[
-{ "id" : "D0001", "password": "doctor1", "forename": "Paul", "surname": "Hibby", "address": "12 Road, London", "age": "45", "gender": "Male"},
-{ "id" : "D0002", "password": "doctor2", "forename": "Katie", "surname": "Riley", "address": "45 Street, Plymouth", "age": "26", "gender": "Female"},
-{ "id" : "D0003", "password": "doctor3", "forename": "Gemma", "surname": "Collins", "address": "84 Lane, Leeds", "age": "79", "gender": "Female"}
-    
-]
