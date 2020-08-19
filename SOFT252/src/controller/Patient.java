@@ -42,7 +42,7 @@ public class Patient extends People {
         }    
             //loops through doctors
         for(int i = 0; i < doctorList.size(); i++){
-            new TextAreaOutputStream_1(area).print("\n" + (i) + ". " + doctorList.get(i).getId());
+            new TextAreaOutputStream_1(area).print((i) + ". " + doctorList.get(i).getForename() + "\n");
         }
         int doctor = Integer.parseInt(JOptionPane.showInputDialog(null, "Select your doctor number:"));
         
@@ -52,7 +52,7 @@ public class Patient extends People {
             new TextAreaOutputStream_1(area).print("\n" + "Slot " + i);
         }
         
-        String slot = JOptionPane.showInputDialog("Choose the Slot");
+        String slot = JOptionPane.showInputDialog("Choose the Slot (1-8)");
         new TextAreaOutputStream_1(area).print("slot " + slot + " chosen");
         
         String notes = "";

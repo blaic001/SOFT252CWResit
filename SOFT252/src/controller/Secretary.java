@@ -76,8 +76,10 @@ public class Secretary extends People {
             }
             int mediAdd = Integer.parseInt(JOptionPane.showInputDialog("Which medicine number do you wish to add to?"));
             int howMuch = Integer.parseInt(JOptionPane.showInputDialog("How much by?"));
+            mediAdd = Utilitys.medicineList.get(mediAdd).getQuantity();
+            int finalValue = medicineMath(mediAdd, howMuch);
             
-            Utilitys.medicineList.get(mediAdd).setQuantity(Utilitys.medicineList.get(mediAdd).getQuantity() + howMuch);
+            Utilitys.medicineList.get(mediAdd).setQuantity(finalValue);
             
             area.setText("");
             for (int i = 0; i < Utilitys.medicineList.size(); i++){
@@ -86,6 +88,9 @@ public class Secretary extends People {
         
             
         }
+    public static int medicineMath(int mediAdd, int howMuch){
+        return mediAdd + howMuch;
+    }
     //remove patients
     public static void patientRemove (JTextArea area){
         area.setText("");
