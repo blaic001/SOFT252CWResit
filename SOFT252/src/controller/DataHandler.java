@@ -158,22 +158,22 @@ public class DataHandler {
             Utilitys.tempPatientList.add(p);
         }
         
-        obj = new JSONParser().parse(new FileReader("appointmentList.json"));
-        ja = (JSONArray) obj;
-        for (int i = 0; i < ja.size(); i ++){
-            JSONObject jo = (JSONObject) ja.get(i);
-            String doctor = (String) jo.get("doctor");
-            String patient = (String) jo.get("patient");
-            String timeslot =  (String) jo.get("timeslot");
-            String notes = (String) jo.get("notes");
-            
-            Doctor doc = Utilitys.doctorList.get(Integer.parseInt(doctor));
-            
-            Patient pat = Utilitys.patientList.get(Integer.parseInt(patient));
-            
-            Appointment a = new Appointment(doc, pat, timeslot, notes);
-            Utilitys.appointmentList.add(a);
-        }
+//        obj = new JSONParser().parse(new FileReader("appointmentList.json"));
+//        ja = (JSONArray) obj;
+//        for (int i = 0; i < ja.size(); i ++){
+//            JSONObject jo = (JSONObject) ja.get(i);
+//            String doctor = (String) jo.get("doctor");
+//            String patient = (String) jo.get("patient");
+//            String timeslot =  (String) jo.get("timeslot");
+//            String notes = (String) jo.get("notes");
+//            
+//            Doctor doc = Utilitys.doctorList.get(Integer.parseInt(doctor));
+//            
+//            Patient pat = Utilitys.patientList.get(Integer.parseInt(patient));
+//            
+//            Appointment a = new Appointment(doc, pat, timeslot, notes);
+//            Utilitys.appointmentList.add(a);
+//        }
         }
         //to catch exceptions
         catch(Exception e){
@@ -262,7 +262,7 @@ public class DataHandler {
         for (Medicine med : Utilitys.medicineList){
             JSONObject medDetails = new JSONObject();
             medDetails.put("name", med.getName());
-            medDetails.put("quantity", med.getQuantity());
+            medDetails.put("quantity", Integer.toString(med.getQuantity()));
             medDetails.put("dosage", med.getDosage());
             medicineA.add(medDetails);
         }
@@ -273,26 +273,9 @@ public class DataHandler {
 
         for (Appointment app : Utilitys.appointmentList){
             JSONObject appDetails = new JSONObject();
-            JSONObject patientDetails = new JSONObject();
-            JSONObject doctorDetails = new JSONObject();
-            patientDetails.put("forename", app.getPatient().getForename());
-            patientDetails.put("surname", app.getPatient().getSurname());
-            patientDetails.put("password", app.getPatient().getPassword());
-            patientDetails.put("address", app.getPatient().getAddress());
-            patientDetails.put("id", app.getPatient().getId());
-            patientDetails.put("age", app.getPatient().getAge());
-            patientDetails.put("gender", app.getPatient().getGender());
             
-            doctorDetails.put("forename", app.getDoctor().getForename());
-            doctorDetails.put("surname", app.getDoctor().getSurname());
-            doctorDetails.put("password", app.getDoctor().getPassword());
-            doctorDetails.put("address", app.getDoctor().getAddress());
-            doctorDetails.put("id", app.getDoctor().getId());
-            doctorDetails.put("age", app.getDoctor().getAge());
-            doctorDetails.put("gender", app.getDoctor().getGender());
-            
-            appDetails.put("patient", patientDetails);
-            appDetails.put("doctor", doctorDetails);
+            appDetails.put("patient", app.getPatient().getForename());
+            appDetails.put("doctor", app.getDoctor().getForename());
             appDetails.put("timeslot", app.getTimeslot());
             appDetails.put("notes", app.getNotes());
             

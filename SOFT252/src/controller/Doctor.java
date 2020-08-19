@@ -69,8 +69,8 @@ public class Doctor extends People {
             new TextAreaOutputStream_1(area).print("\n" + Utilitys.appointmentList.get(i).getTimeslot());
         }
         
-        String timeslot = (JOptionPane.showInputDialog("Choose timeslot:"));
-        
+        String timeslot = (JOptionPane.showInputDialog("Choose timeslot (1-8):"));
+        area.setText("");
         getAppointmentTS(timeslot);
         
         String notes = JOptionPane.showInputDialog("Write notes");

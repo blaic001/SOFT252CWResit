@@ -104,7 +104,6 @@ public class Utilitys {
         int number = Integer.parseInt(JOptionPane.showInputDialog(null, "Select your doctor number:"));
         int rating = Integer.parseInt(JOptionPane.showInputDialog(null, "Rate between 1-10:"));        
         String comment = JOptionPane.showInputDialog(null, "Any comments?");
-        
         doctorList.get(number).doctorRatingList.add(("Rating: " + rating + "/10 \n") + ("Comment: " + comment));
         
         }
@@ -117,6 +116,7 @@ public class Utilitys {
         }
         int number = Integer.parseInt(JOptionPane.showInputDialog(null, "Select your doctor number:"));
         //display current ratings
+        area.setText("");
         for (int i = 0; i < doctorList.get(number).doctorRatingList.size(); i++){
         new TextAreaOutputStream_1(area).print(doctorList.get(number).doctorRatingList.get(i) + "\n");
         }
