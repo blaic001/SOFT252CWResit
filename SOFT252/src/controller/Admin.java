@@ -28,7 +28,7 @@ public class Admin extends People {
         }
         
         int number = Integer.parseInt(JOptionPane.showInputDialog(null, "Select your doctor number:"));
-        
+        area.setText("");
         
             
         for (int j = 0; j < doctorList.get(number).doctorRatingList.size(); j++){
@@ -39,7 +39,7 @@ public class Admin extends People {
         
         
         String feedback = JOptionPane.showInputDialog(null, "Enter your feedback:");
-        
+        area.setText("");
         doctorList.get(number).doctorRatingList.add(feedback);
     }
 }

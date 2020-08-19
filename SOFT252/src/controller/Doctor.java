@@ -95,6 +95,7 @@ public class Doctor extends People {
         }
         int number = Integer.parseInt(JOptionPane.showInputDialog("Select patient number"));
         
+        area.setText("");
         for (int j = 0; j < Utilitys.patientList.get(number).patientHistoryList.size(); j++){
             new TextAreaOutputStream_1(area).print("\n" + Utilitys.patientList.get(number).patientHistoryList.get(j));
         }
@@ -141,9 +142,9 @@ public class Doctor extends People {
             new TextAreaOutputStream_1(area).print(i + Utilitys.medicineList.get(i).getName());
         }
         int mediNumber = Integer.parseInt(JOptionPane.showInputDialog("Prescribe medicine number: "));
-        
+        area.setText("");
         Utilitys.medicineList.get(mediNumber).setQuantity(Utilitys.medicineList.get(mediNumber).getQuantity() - 1);
-        
+        area.setText("");
         for (int i = 0; i < Utilitys.patientList.size(); i++){
             new TextAreaOutputStream_1(area).print(i + Utilitys.patientList.get(i).getId());
         }

@@ -45,7 +45,7 @@ public class Patient extends People {
             new TextAreaOutputStream_1(area).print((i) + ". " + doctorList.get(i).getForename() + "\n");
         }
         int doctor = Integer.parseInt(JOptionPane.showInputDialog(null, "Select your doctor number:"));
-        
+        area.setText("");
         Doctor doctorSelect = Utilitys.doctorList.get(doctor);
         
         for (int i = 0; i < 9; i++){
@@ -53,6 +53,9 @@ public class Patient extends People {
         }
         
         String slot = JOptionPane.showInputDialog("Choose the Slot (1-8)");
+        
+        area.setText("");
+        
         new TextAreaOutputStream_1(area).print("slot " + slot + " chosen");
         
         String notes = "";
@@ -84,6 +87,7 @@ public class Patient extends People {
     //view pescription
     
     public static void viewPescription(JTextArea area) {
+        area.setText("");
         for (int i = 0; i < Utilitys.patientList.size(); i++){
             //checks patient ID to check pescription        
             if (Utilitys.patientList.get(i).getId().equals(Utilitys.LoginID)){

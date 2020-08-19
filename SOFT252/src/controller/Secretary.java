@@ -31,6 +31,7 @@ public class Secretary extends People {
                     tempPatientList.remove(i);
             }
         }
+        area.setText("");
     }
  
     //create an appointment between a patient and a free doctor
@@ -48,11 +49,11 @@ public class Secretary extends People {
         int doctor = Integer.parseInt(JOptionPane.showInputDialog(null, "Select your doctor number:"));
         
         Doctor doctorSelect = Utilitys.doctorList.get(doctor);
-        
+        area.setText("");
         for (int i = 0; i < 9; i++){
             new TextAreaOutputStream_1(area).print("\n" + "Slot " + i);
         }
-        String slot = JOptionPane.showInputDialog("Choose the Slot");
+        String slot = JOptionPane.showInputDialog("Choose the Slot (1-8)");
         new TextAreaOutputStream_1(area).print("slot " + slot + " chosen");
         
         String notes = "";

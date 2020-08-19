@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package controller;
+import static controller.DataHandler.jsonWrite;
+import static java.lang.Math.random;
 import model.Appointment;
 import model.Medicine;
 import java.util.*; 
@@ -124,8 +126,8 @@ public class Utilitys {
     }
     //creates an account for admin or patients
     public static void createAccountAdmPat() {
-               
-        int i = 1231;
+        Random random = new Random();
+        int i = random.nextInt(10000);
         String forename = JOptionPane.showInputDialog(null, "Enter your forename:");
         
         String surname = JOptionPane.showInputDialog(null, "Enter your surname:");
@@ -174,6 +176,8 @@ public class Utilitys {
             
             adminList.add(a);
             
+            jsonWrite();
+            
         } 
         
         
@@ -184,7 +188,8 @@ public class Utilitys {
     //creates an account for a secretary or doctor
     public static void createAccountSecDoc() {
                
-        int i = 1231;
+        Random random = new Random();
+        int i = random.nextInt(10000);
         
         String forename = JOptionPane.showInputDialog(null, "Enter your forename:");
         
@@ -215,6 +220,8 @@ public class Utilitys {
             JOptionPane.showMessageDialog(null, "Doctor Added");
             
             doctorList.add(d);
+            
+            jsonWrite();
         }
         //checks they say secretary if they say secretary they get built as an secretary
         else if (roleCheck.equals("secretary")){
@@ -231,6 +238,8 @@ public class Utilitys {
             JOptionPane.showMessageDialog(null, "Secretary Added");
             
             secretaryList.add(s);
+            
+            jsonWrite();
         } 
     }
 }
