@@ -37,10 +37,10 @@ public class Secretary extends People {
     //create an appointment between a patient and a free doctor
     public static void createAppointment (JTextArea area){
         for (int i = 0; i < Utilitys.patientList.size(); i++){
-            new TextAreaOutputStream_1(area).print("\n" + i + Utilitys.patientList.get(i).getForename());
+            new TextAreaOutputStream_1(area).print("\n" + i + ". " + Utilitys.patientList.get(i).getForename());
         }
-        int patient = Integer.parseInt(JOptionPane.showInputDialog("Choose the patient"));
-        
+        int patient = Integer.parseInt(JOptionPane.showInputDialog("Choose the patient number"));
+        area.setText("");
         Patient patientSelect = Utilitys.patientList.get(patient);
         
         for(int i = 0; i < doctorList.size(); i++){
@@ -54,6 +54,9 @@ public class Secretary extends People {
             new TextAreaOutputStream_1(area).print("\n" + "Slot " + i);
         }
         String slot = JOptionPane.showInputDialog("Choose the Slot (1-8)");
+        
+        area.setText("");
+        
         new TextAreaOutputStream_1(area).print("slot " + slot + " chosen");
         
         String notes = "";
@@ -77,8 +80,8 @@ public class Secretary extends People {
             }
             int mediAdd = Integer.parseInt(JOptionPane.showInputDialog("Which medicine number do you wish to add to?"));
             int howMuch = Integer.parseInt(JOptionPane.showInputDialog("How much by?"));
-            mediAdd = Utilitys.medicineList.get(mediAdd).getQuantity();
-            int finalValue = medicineMath(mediAdd, howMuch);
+            int mediAddValue = Utilitys.medicineList.get(mediAdd).getQuantity();
+            int finalValue = medicineMath(mediAddValue, howMuch);
             
             Utilitys.medicineList.get(mediAdd).setQuantity(finalValue);
             
@@ -89,8 +92,8 @@ public class Secretary extends People {
         
             
         }
-    public static int medicineMath(int mediAdd, int howMuch){
-        return mediAdd + howMuch;
+    public static int medicineMath(int mediAddValue, int howMuch){
+        return mediAddValue + howMuch;
     }
     //remove patients
     public static void patientRemove (JTextArea area){

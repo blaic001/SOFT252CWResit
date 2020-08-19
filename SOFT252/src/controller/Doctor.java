@@ -91,7 +91,7 @@ public class Doctor extends People {
     public static void patientHistory(JTextArea area) {
         area.setText("");
         for (int i = 0; i < Utilitys.patientList.size(); i++){
-            new TextAreaOutputStream_1(area).print(Utilitys.patientList.get(i).getForename());
+            new TextAreaOutputStream_1(area).print(i + ". " + Utilitys.patientList.get(i).getForename() + "\n");
         }
         int number = Integer.parseInt(JOptionPane.showInputDialog("Select patient number"));
         
@@ -108,7 +108,7 @@ public class Doctor extends People {
             new TextAreaOutputStream_1(area).print("\n" + i + Utilitys.patientList.get(i).getForename());
         }
         int patient = Integer.parseInt(JOptionPane.showInputDialog("Choose the patient"));
-        
+        area.setText("");
         Patient patientSelect = Utilitys.patientList.get(patient);
         
         
@@ -126,6 +126,7 @@ public class Doctor extends People {
             new TextAreaOutputStream_1(area).print("\n" + "Slot " + i);
         }
         String slot = (JOptionPane.showInputDialog("Choose the Slot"));
+        area.setText("");
         new TextAreaOutputStream_1(area).print("\n" + "slot " + slot + " chosen");
         
         String notes = "";
@@ -139,18 +140,18 @@ public class Doctor extends People {
     public static void prescribeMedicine (JTextArea area) {
         area.setText("");
         for (int i=0; i < Utilitys.medicineList.size(); i++){
-            new TextAreaOutputStream_1(area).print(i + Utilitys.medicineList.get(i).getName());
+            new TextAreaOutputStream_1(area).print(i + ". " + Utilitys.medicineList.get(i).getName() + "\n");
         }
         int mediNumber = Integer.parseInt(JOptionPane.showInputDialog("Prescribe medicine number: "));
         area.setText("");
         Utilitys.medicineList.get(mediNumber).setQuantity(Utilitys.medicineList.get(mediNumber).getQuantity() - 1);
         area.setText("");
         for (int i = 0; i < Utilitys.patientList.size(); i++){
-            new TextAreaOutputStream_1(area).print(i + Utilitys.patientList.get(i).getId());
+            new TextAreaOutputStream_1(area).print(i + Utilitys.patientList.get(i).getForename());
         }
         
         int patNumber = Integer.parseInt(JOptionPane.showInputDialog("Choose patient number: "));
-        
+        area.setText("");
         Utilitys.patientList.get(patNumber).patientMedicineList.add(Utilitys.medicineList.get(mediNumber));
         
     }

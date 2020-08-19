@@ -74,8 +74,8 @@ public class Patient extends People {
             if (Utilitys.patientList.get(i).getId().equals(Utilitys.LoginID)){
                 LinkedList<Appointment> appList = Utilitys.getIdAppointment(Utilitys.LoginID);
                 for (int j = 0; j < appList.size(); j++){
-                    new TextAreaOutputStream_1(area).print("\n" + appList.get(j).getDoctor().getId()
-                    + "\t" + appList.get(j).getPatient().getId()
+                    new TextAreaOutputStream_1(area).print("\n" + appList.get(j).getDoctor().getForename()
+                    + "\t" + appList.get(j).getPatient().getForename()
                     + "\t" + appList.get(j).getTimeslot());
                     
                 }
