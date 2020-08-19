@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="controller">
+  <ClassDiagramComponents>
+    <Class name="Admin" package="controller" visibility="public" xPosition="452.0" yPosition="38.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="accountCreate" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="doctorsFeedback" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DataHandler" package="controller" visibility="public" xPosition="71.0" yPosition="58.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="jsonReader" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="jsonWrite" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="writeJSON" returnType="void" visibility="private" isStatic="true">
+          <Argument type="String" name="filename"/>
+          <Argument type="String" name="jsonString"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Doctor" package="controller" visibility="public" xPosition="426.0" yPosition="179.0">
+      <Fields>
+        <Field name="doctorRatingList" type="LinkedList&lt;String&gt;" visibility="public"/>
+        <Field name="feedback" type="String" visibility="private"/>
+        <Field name="notes" type="String" visibility="private"/>
+        <Field name="pescription" type="String" visibility="private"/>
+        <Field name="patientPescriptionList" type="LinkedList&lt;String&gt;" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getNotes" returnType="String" visibility="public"/>
+        <Method name="setNotes" returnType="void" visibility="public">
+          <Argument type="String" name="notes"/>
+        </Method>
+        <Method name="getFeedback" returnType="String" visibility="public"/>
+        <Method name="setFeedback" returnType="void" visibility="public">
+          <Argument type="String" name="feedback"/>
+        </Method>
+        <Method name="viewAppointments" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="makeNotes" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="getAppointmentTS" returnType="Appointment" visibility="public" isStatic="true">
+          <Argument type="String" name="timeslot"/>
+        </Method>
+        <Method name="patientHistory" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="chooseAppointment" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="prescribeMedicine" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="newMedicine" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Patient" package="controller" visibility="public" xPosition="633.0" yPosition="601.0">
+      <Fields>
+        <Field name="patientMedicineList" type="LinkedList&lt;Medicine&gt;" visibility="public"/>
+        <Field name="patientHistoryList" type="LinkedList&lt;String&gt;" visibility="public"/>
+        <Field name="doctor" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="requestAppointment" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="viewAppointment" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="viewPescription" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="accountTerminate" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Secretary" package="controller" visibility="public" xPosition="938.0" yPosition="601.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="patientApprove" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="createAppointment" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="stockCheck" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="orderMedicine" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="patientRemove" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SOFT252" package="controller" visibility="public" xPosition="71.0" yPosition="210.0">
+      <Fields>
+        <Field name="login" type="GuiLogin" visibility="public" isStatic="true"/>
+        <Field name="patientGui" type="guiPatient" visibility="public" isStatic="true"/>
+        <Field name="doctorGui" type="guiDoctor" visibility="public" isStatic="true"/>
+        <Field name="secretaryGui" type="GuiSecretary" visibility="public" isStatic="true"/>
+        <Field name="adminGui" type="guiAdmin" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="guiSetup" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="loginGo" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="TextAreaOutputStream_1" package="controller" visibility="public" xPosition="71.0" yPosition="457.0">
+      <Fields>
+        <Field name="textArea" type="JTextArea" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JTextArea" name="textArea"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="write" returnType="void" visibility="public">
+          <Argument type="int" name="b"/>
+        </Method>
+        <Method name="print" returnType="void" visibility="public">
+          <Argument type="CharSequence" name="cs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Utilitys" package="controller" visibility="public" xPosition="863.0" yPosition="38.0">
+      <Fields>
+        <Field name="tempPatientList" type="LinkedList&lt;Patient&gt;" visibility="package" isStatic="true"/>
+        <Field name="patientList" type="LinkedList&lt;Patient&gt;" visibility="package" isStatic="true"/>
+        <Field name="doctorList" type="LinkedList&lt;Doctor&gt;" visibility="package" isStatic="true"/>
+        <Field name="secretaryList" type="LinkedList&lt;Secretary&gt;" visibility="package" isStatic="true"/>
+        <Field name="adminList" type="LinkedList&lt;Admin&gt;" visibility="package" isStatic="true"/>
+        <Field name="appointmentList" type="LinkedList&lt;Appointment&gt;" visibility="package" isStatic="true"/>
+        <Field name="medicineList" type="LinkedList&lt;Medicine&gt;" visibility="package" isStatic="true"/>
+        <Field name="logintype" type="LoginType" visibility="package" isStatic="true"/>
+        <Field name="LoginID" type="String" visibility="package" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getIdAppointment" returnType="LinkedList&lt;Appointment&gt;" visibility="public" isStatic="true">
+          <Argument type="String" name="Id"/>
+        </Method>
+        <Method name="deleteAccountSecDoc" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="deleteAccountPatient" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="rateDoctor" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="doctorsRating" returnType="void" visibility="public" isStatic="true">
+          <Argument type="JTextArea" name="area"/>
+        </Method>
+        <Method name="createAccountAdmPat" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="createAccountSecDoc" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tempPatientList" source="controller.Utilitys" target="controller.Patient" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Patient&gt;"/>
+    <HasRelation name="doctorList" source="controller.Utilitys" target="controller.Doctor" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Doctor&gt;"/>
+    <HasRelation name="patientList" source="controller.Utilitys" target="controller.Patient" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Patient&gt;"/>
+    <HasRelation name="secretaryList" source="controller.Utilitys" target="controller.Secretary" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Secretary&gt;"/>
+    <HasRelation name="adminList" source="controller.Utilitys" target="controller.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="LinkedList&lt;Admin&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
