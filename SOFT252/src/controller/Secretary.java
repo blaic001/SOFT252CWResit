@@ -36,6 +36,7 @@ public class Secretary extends People {
  
     //create an appointment between a patient and a free doctor
     public static void createAppointment (JTextArea area){
+        area.setText("");
         for (int i = 0; i < Utilitys.patientList.size(); i++){
             new TextAreaOutputStream_1(area).print("\n" + i + ". " + Utilitys.patientList.get(i).getForename());
         }
